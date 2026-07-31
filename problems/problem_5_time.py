@@ -1,7 +1,11 @@
 """
 Print the elapsed time
 """
-input("Press enter to START the timer: ")
-input("Press enter to STOP the timer: ")
+import time
 
-print("{}s elapsed")
+input("Press enter to START the timer: ")
+start = time.time()
+input("Press enter to STOP the timer: ")
+end = time.time()
+
+print(f"{round(end - start)}s elapsed")
