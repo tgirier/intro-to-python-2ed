@@ -1,7 +1,9 @@
 """
 Simulate rolling 2 dice
 """
+import random
 
-# Todo: Get two random integers between 1 and 6 (inclusive)
+die_1 = random.randint(1, 6)
+die_2 = random.randint(1, 6)
 
-print("You rolled a {} and {} (total: {})")
+print(f"You rolled a {die_1} and {die_2} (total: {die_1 + die_2})")
