@@ -7,7 +7,7 @@ a = 3
 b = 4
 c = 5
 
-# Todo: replace with calculations for s and area
+# Todo: replace with calculation s for s and area
 s = (a + b + c) / 2  # superperimeter
 area = math.sqrt(s * (s - a) * (s - b) * (s - c))
 
