@@ -2,9 +2,10 @@
 Mad Libs
 """
 
-# Todo: prompt the user to provide the missing words
+colour = input("Give me a colour: ").strip().lower()
+adjective = input("Give me an adjective: ").strip().lower()
 
-text = """
+text = f"""
 Roses are {colour},
 Violets are blue,
 Sugar is {adjective},
