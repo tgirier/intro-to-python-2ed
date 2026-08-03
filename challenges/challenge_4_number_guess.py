@@ -22,13 +22,11 @@ def play_game(num_guesses):
 
     print("I'm thinking of a number between 1 and 20")
 
-    while num_guesses > 0:    
-        print(f"You have {num_guesses} guess{'' if num_guesses == 1 else 'es'} left")
+    for i in range(num_guesses, 0, -1):
+        print(f"You have {i} guess{'' if i == 1 else 'es'} left")
 
         if get_guess(answer):
             return
-
-        num_guesses -= 1
 
     print(f"It was {answer}")
 
