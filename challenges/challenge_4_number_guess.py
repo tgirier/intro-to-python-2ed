@@ -17,41 +17,20 @@ def get_guess(answer):
         print('Lower')
     return False
 
-def play_game():
+def play_game(num_guesses):
     answer = random.randint(1, 20)
 
     print("I'm thinking of a number between 1 and 20")
-    
-    if get_guess(answer):
-        return
-    if get_guess(answer):
-        return
-    if get_guess(answer):
-        return
+
+    while num_guesses > 0:    
+        print(f"You have {num_guesses} guess{'' if num_guesses == 1 else 'es'} left")
+
+        if get_guess(answer):
+            return
+
+        num_guesses -= 1
 
     print(f"It was {answer}")
 
-play_game()
+play_game(4)
 
-# def check_answer(g, a):
-#     if g < a:
-#         print("Failed, you're too low!")
-#         return False
-#     elif g > a:
-#         print("Failed you're too high!")
-#         return False
-#     else:
-#         return True
-
-# if check_answer(guess, answer):
-#     print("Congratulations you won !")
-# else:
-#     guess = int(input("Make a guess: "))
-#     if check_answer(guess, answer):
-#         print("Congratulations you won !")
-#     else:
-#         guess = int(input("Make a guess: "))
-#         if check_answer(guess,answer):
-#             print("Congratulations you won !")
-#         else:
-#             print(f"Failed try again, the answer was {answer}")
