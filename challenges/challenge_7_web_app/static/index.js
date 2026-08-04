@@ -14,6 +14,6 @@ $(document).ready(function(){  // When document loads
     );
   }
 
-  $('button').click(onButtonClick);  // When any button is clicked, call function
+  $('.btns button').click(onButtonClick);  // When any button is clicked, call function
 
 });
