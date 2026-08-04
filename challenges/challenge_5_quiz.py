@@ -4,16 +4,9 @@ Quiz game
 User will try to get all the answers (e.g. countries that start with V)
 If they give up and quit, print the ones that were missed
 """
-
-answers = [
-    'Vanuatu',
-    'Vatican City',
-    'Venezuela',
-    'Vietnam',
-]
-
-category = 'Country that starts with V'
-
+with open('data/V_countries.txt') as file:
+    category = file.readline().strip()
+    answers = file.read().split('\n')
 
 def get_results(answers_left):
     if len(answers_left) == 0:
