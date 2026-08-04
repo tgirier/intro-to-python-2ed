@@ -7,6 +7,8 @@ from flask import (
     url_for,
 )
 
+from db import get_num_clicks
+
 app = Flask(__name__)
 app.secret_key = b'aetjlkf1146+-454:/6jdsljfe'
 
@@ -15,12 +17,17 @@ def index():
     if request.method == 'POST':
         session['name'] = request.form['name']
 
+    num_buttons = 4
+    buttons = {}
+
+    for i in range(1, num_buttons + 1):
+        buttons[f'button_{i}'] = get_num_clicks(f'button_{i}')
+
     context = {
         'name': session.get('name', ''),
-        "num_clicks_1": session.get('button_1', 0),
-        "num_clicks_2": session.get('button_2', 0),
-        "num_clicks_3": session.get('button_3', 0),
+        'buttons': buttons,
     }
+
     return render_template("index.html", **context)
 
 @app.route("/reset")
@@ -30,8 +37,8 @@ def reset():
 
 @app.route("/click/<btn_id>", methods=['POST'])
 def click(btn_id):
-    session[btn_id] = session.get(btn_id, 0) + 1
-    return {'num_clicks': session[btn_id]}
+    num_clicks = get_num_clicks(btn_id, update=True)
+    return {'num_clicks': num_clicks}
 
 if __name__ == '__main__':
     app.run(debug=True)

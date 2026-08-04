@@ -20,9 +20,9 @@
     {% endif %}
     <h2>Click a button</h2>
     <div class="btns">
-      <button id="button_1">I've been clicked {{ num_clicks_1 }} times</button>
-      <button id="button_2">I've been clicked {{ num_clicks_2 }} times</button>
-      <button id="button_3">I've been clicked {{ num_clicks_3 }} times</button>
+      {% for btn_id in buttons %}
+        <button id="{{ btn_id }}">I've been clicked {{ buttons[btn_id] }} times</button>
+      {% endfor %}
     </div>
 
   <script src="{{ url_for('static', filename='index.js')}}"></script>
